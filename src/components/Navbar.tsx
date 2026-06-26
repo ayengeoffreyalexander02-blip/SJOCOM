@@ -52,6 +52,7 @@ export default function Navbar({ onOpenAdmission, onOpenPortal, onNavClick }: Na
       ]
     },
     { name: "Alumni", href: "#alumni" },
+    { name: "Gallery", href: "#gallery" },
     { name: "News", href: "#news" },
     { name: "Contact", href: "#contact" }
   ];

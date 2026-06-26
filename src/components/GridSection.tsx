@@ -5,6 +5,7 @@ import {
   X, BookOpen, Clock, MapPin, DollarSign, ListTodo, ShieldAlert 
 } from "lucide-react";
 import { Announcement, SchoolEvent } from "../types";
+import UnebResults from "./UnebResults";
 
 interface GridSectionProps {
   onOpenPortal: () => void;
@@ -471,7 +472,9 @@ export default function GridSection({ onOpenPortal, onOpenAdmission }: GridSecti
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-md w-full relative border border-slate-100 max-h-[80vh] overflow-y-auto"
+              className={`bg-white rounded-2xl shadow-2xl p-6 md:p-8 relative border border-slate-100 max-h-[90vh] overflow-y-auto transition-all duration-300 w-full ${
+                selectedQuickLink === "results" ? "max-w-4xl" : "max-w-md"
+              }`}
             >
               <button
                 onClick={() => setSelectedQuickLink(null)}
@@ -571,40 +574,15 @@ export default function GridSection({ onOpenPortal, onOpenAdmission }: GridSecti
                     </div>
                   </div>
                 </div>
-              )}
-
-              {selectedQuickLink === "results" && (
+              )}              {selectedQuickLink === "results" && (
                 <div className="space-y-4">
                   <div className="border-b border-slate-100 pb-3 flex items-center gap-2">
-                    <BookOpen className="h-5 w-5 text-emerald-800" />
+                    <BookOpen className="h-5 w-5 text-[#1B5E20]" />
                     <h4 className="font-serif text-lg font-bold text-slate-900">UNEB National Exam Records</h4>
                   </div>
-                  <div className="text-xs text-slate-600 font-medium space-y-3">
-                    <p>Our division distribution statistics in national UNEB exams represent our unwavering commitment to academic excellence:</p>
-                    
-                    <div className="p-3 bg-slate-50 border border-slate-100 rounded-xl space-y-2">
-                      <span className="font-serif text-xs font-bold text-slate-800">UCE Statistics (O-Level)</span>
-                      <div className="grid grid-cols-3 gap-1.5 text-center text-[10px] font-bold">
-                        <div className="p-2.5 bg-emerald-100/50 text-emerald-800 rounded">
-                          <span className="block text-lg">82%</span>
-                          <span>Division 1</span>
-                        </div>
-                        <div className="p-2.5 bg-slate-100 text-slate-600 rounded">
-                          <span className="block text-lg">15%</span>
-                          <span>Division 2</span>
-                        </div>
-                        <div className="p-2.5 bg-slate-100 text-slate-400 rounded">
-                          <span className="block text-lg">3%</span>
-                          <span>Division 3</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="p-3.5 bg-emerald-50 border border-emerald-100 rounded-lg text-emerald-800 flex items-center gap-2">
-                      <ShieldAlert className="h-5 w-5 shrink-0" />
-                      <p className="text-[11px] leading-relaxed">Over 94% of our UACE (A-Level) candidates score direct entry points to top universities including Makerere, Kyambogo and Mbarara University.</p>
-                    </div>
-                  </div>
+                  
+                  {/* Digital exact replica of the physical flyer */}
+                  <UnebResults />
                 </div>
               )}
 

@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import KeyPillars from "./components/KeyPillars";
 import AboutSection from "./components/AboutSection";
+import GallerySection from "./components/GallerySection";
 import GridSection from "./components/GridSection";
 import Footer from "./components/Footer";
 import AdmissionModal from "./components/AdmissionModal";
@@ -49,6 +50,9 @@ export default function App() {
         <AboutSection 
           onOpenAdmission={() => setAdmissionModalOpen(true)}
         />
+
+        {/* Gallery tour section */}
+        <GallerySection />
 
         {/* 4-column Announcements / Events / QuickLinks / StudentPortal Section */}
         <GridSection 
